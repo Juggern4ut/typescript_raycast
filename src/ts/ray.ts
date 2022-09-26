@@ -43,7 +43,7 @@ export default class Ray {
 
       //console.log(t, u);
       
-      if (t > 0 && t < 1 && u < 0) {
+      if (t > 0 && t < 1 && u > 0) {
         let retX = x1 + t * (x2 - x1);
         let retY = y1 + t * (y2 - y1);
 

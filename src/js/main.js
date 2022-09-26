@@ -28,7 +28,7 @@ function drawScene() {
         let point = r.cast(walls);
         if (point) {
             point = point;
-            ctx.strokeStyle = "rgba(255,255,255,0.15)";
+            ctx.strokeStyle = "rgba(255, 255, 255, 0.2)";
             ctx.beginPath();
             ctx.moveTo(particle.position.x, particle.position.y);
             ctx.lineTo(point.x, point.y);

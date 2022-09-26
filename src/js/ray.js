@@ -29,7 +29,7 @@ class Ray {
             const t = ((x1 - x3) * (y3 - y4) - (y1 - y3) * (x3 - x4)) / den;
             const u = -((x1 - x3) * (y1 - y2) - (y1 - y3) * (x1 - x2)) / den;
             //console.log(t, u);
-            if (t > 0 && t < 1 && u < 0) {
+            if (t > 0 && t < 1 && u > 0) {
                 let retX = x1 + t * (x2 - x1);
                 let retY = y1 + t * (y2 - y1);
                 if (currentClosest == false || this.getDist(retX, retY) < this.getDist(currentClosest.x, currentClosest.y)) {
