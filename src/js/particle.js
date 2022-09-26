@@ -8,8 +8,8 @@ class Particle {
     constructor(x, y) {
         this.rays = [];
         this.position = { x, y };
-        for (let i = 0; i < 360; i += 1) {
-            this.rays.push(new ray_1.default(this.position.x, this.position.y, i));
+        for (let i = 0; i < 360; i += 0.75) {
+            this.rays.push(new ray_1.default(this.position.x, this.position.y, i + 0.01));
         }
     }
     setPosition(x, y) {
@@ -19,7 +19,7 @@ class Particle {
     draw(ctx) {
         ctx.fillStyle = "#fff";
         ctx.beginPath();
-        ctx.ellipse(this.position.x, this.position.y, 5, 5, Math.PI * 2, 0, Math.PI * 2);
+        ctx.ellipse(this.position.x, this.position.y, 2, 2, Math.PI * 2, 0, Math.PI * 2);
         ctx.fill();
     }
 }

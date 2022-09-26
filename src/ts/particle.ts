@@ -5,8 +5,8 @@ export default class Particle {
   rays: Ray[] = [];
   constructor(x: number, y: number) {
     this.position = { x, y };
-    for (let i = 0; i < 360; i += 1) {
-      this.rays.push(new Ray(this.position.x, this.position.y, i));
+    for (let i = 0; i < 360; i += 0.75) {
+      this.rays.push(new Ray(this.position.x, this.position.y, i + 0.01));
     }
   }
 
@@ -21,8 +21,8 @@ export default class Particle {
     ctx.ellipse(
       this.position.x,
       this.position.y,
-      5,
-      5,
+      2,
+      2,
       Math.PI * 2,
       0,
       Math.PI * 2

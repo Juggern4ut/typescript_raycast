@@ -35,9 +35,11 @@ function drawScene() {
   particle.draw(ctx);
 
   particle.rays.forEach((r) => {
-    const point = r.cast(walls);
+    let point = r.cast(walls);
+
     if (point) {
-      ctx.strokeStyle = "rgba(255,255,255,0.4)";
+      point = point as { x: number; y: number };
+      ctx.strokeStyle = "rgba(255,255,255,0.15)";
       ctx.beginPath();
       ctx.moveTo(particle.position.x, particle.position.y);
       ctx.lineTo(point.x, point.y);
