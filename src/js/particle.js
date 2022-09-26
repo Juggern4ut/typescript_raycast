@@ -6,15 +6,23 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const ray_1 = __importDefault(require("./ray"));
 class Particle {
     constructor(x, y) {
+        this.rot = 0;
         this.rays = [];
         this.position = { x, y };
-        for (let i = 0; i < 360; i += 0.75) {
+        for (let i = -30; i < 30; i += 1) {
             this.rays.push(new ray_1.default(this.position.x, this.position.y, i + 0.01));
         }
     }
     setPosition(x, y) {
         this.position = { x, y };
         this.rays.forEach((r) => (r.position = { x, y }));
+    }
+    rotate(amnt) {
+        this.rays = [];
+        this.rot += amnt;
+        for (let i = -30 + this.rot; i < 30 + this.rot; i += 1) {
+            this.rays.push(new ray_1.default(this.position.x, this.position.y, i + 0.01));
+        }
     }
     draw(ctx) {
         ctx.fillStyle = "#fff";
